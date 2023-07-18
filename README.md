@@ -21,30 +21,63 @@
 </div>
 <div align = "center">
 <h4>
- | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#capabilities"> Capabilities </a> | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#how-to-use"> How to Use </a> |
+ | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#key-features"> Key Features </a> | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#how-to-use"> How to Use </a> | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#mldaapp-csv-outputs"> Outputs </a> |
 </h4>
 </div>
+<div align = "center"> ADD TRACKING VIDEOS HERE </div>
 
-# Capabilities
-<details>
- <summary> Click to Expand </summary>
- 
-</details>
+
+# Key Features 
+
+- Object Tracking (YOLOv8 x Tracker)
+  - Maintaining object IDs
+- Object Counts
+  - Within every picture (or every frame if video)
+  - Within user defined space
+- Centoid Position of every object
+  - Within every picture (or every frame if video)
+- Object Centroid Position away from point q
+  - Point q is a user defined position
+- Object Centroid Distance away from initial position (t=0 position)
+- Total Object Centroid Displacement
+- Object Surface Area (only with segmentation model)
 
 # How to use
 <details>
 <summary> Click to Expand </summary>
- <h4> Training Set Preparation </h4>
+ <h2> Training Set Preparation </h2>
  <details>
-  alsdkfjasdlkfjasdlkj
- </details>
- <h4> Training the Custom model </h4>
- <details>
- alsdkjfasldkfjasdl;fjasd;lkf
- </details>
+
  
+  
+  alsdkfjasdlkfjasdlkj
+
+
+  
+ </details>
+ <h2> Training the Custom model </h2>
+ <details>
+
+  
+ alsdkjfasldkfjasdl;fjasd;lkf
+
+ 
+ </details>
+  <h2> Model-Script Usage </h2>
+ <details>
+
+  
+ Yomama
+
+ 
+ </details>
 </details>
 
+# MLDAAPP .csv Outputs
+<details>
+ <summary> Click to Expand </summary>
+ 
+</details>
 
 
 
