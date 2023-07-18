@@ -5,18 +5,17 @@
 <div align = "center"> 
 <b>
 <h1>
-  MLDAPP 
+  MLDAAPP 
 </h1>
 </b>
 </div>
 
 <div align = "center"> 
-<b>
 <h4>
-  Machine Learning Data for Assesing Population Phenotypes based on <a href = "https://github.com/ultralytics/ultralytics">YOLOv8</a>. 
+  Machine Learning Data Acquisition for Assesing Population Phenotypes based on <a href = "https://github.com/ultralytics/ultralytics">YOLOv8</a>. 
 </h4>
 </b>
 </div>
-
-
-
+<div align = "center">
+<img alt="GitHub followers" src="https://img.shields.io/github/followers/ganamir"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ganamir/MLDAPP"> <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/t/ganamir/MLDAPP"> <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/ganamir/MLDAPP/main">
+</div>
