@@ -19,3 +19,35 @@
 <div align = "center">
 <img alt="GitHub followers" src="https://img.shields.io/github/followers/ganamir"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ganamir/MLDAPP"> <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/t/ganamir/MLDAPP"> <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/ganamir/MLDAPP/main">
 </div>
+<div align = "center">
+<h4>
+ | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#capabilities"> Capabilities </a> | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#how-to-use"> How to Use </a> |
+</h4>
+</div>
+
+# Capabilities
+<details>
+ <summary> Click to Expand </summary>
+ 
+</details>
+
+# How to use
+<details>
+<summary> Click to Expand </summary>
+ <h4> Training Set Preparation </h4>
+ <details>
+  alsdkfjasdlkfjasdlkj
+ </details>
+ <h4> Training the Custom model </h4>
+ <details>
+ alsdkjfasldkfjasdl;fjasd;lkf
+ </details>
+ 
+</details>
+
+
+
+
+
+
+
