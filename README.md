@@ -36,6 +36,14 @@
  <a href = "https://drive.google.com/drive/folders/1aQ10fsA_LZhURsEHc7x2JYWzwjXsw5a9?usp=sharing"> Bees </a> |
 </p></div>
 
+<div align = "center"> 
+
+Copy me:
+<a href="https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing">
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+</div>
 
 # Key Features 
 
@@ -57,10 +65,19 @@
 <summary> Click to Expand </summary>
  <h2> Training Set Preparation </h2>
  <details>
- 
-go to roboflow and do stuff
 
-  
+ 1. Head to [Roboflow](https://roboflow.com/), create an account and sign in.
+ 2. Create a Workspace, then create a New Project.
+    > Depending on what YOLOv8 model you will be using, you will have to decide what project type you will need. (Object detection is the best/simplest way to begin using MLDAAPP)
+ 3. Once you have created the project, import the videos/photos that you would like to turn into your training set & begin annotating the objects of interest.
+ 4. Once done annotating, add all of your images to the Dataset using 70% Train - 30% Valid or 80% Train - 20% Valid methods.
+    > Test set is not important, as I highly suggested creating a seperate video/picture data set with similar or different environmental settings to see how well the model performs.
+ 5. Then enter the "Generate" section and create the data set.
+    > In preproccessing, remove (Resize) function, as we have found it to interfere with our results, especially when training to detect small objects.
+
+    > Augementation is highly dependant on the data set, where some might find a huge improvement while other will not.
+
+ 6. Generate the set and click "Export Dataset > Format: YOLOv8 > Show Download Code ✔️ > Continue" And finally copy the Download code and keep it into the next section where you will be training and running the computer vision model. 
  </details>
  
   <h2> Training & Running YOLOv8 </h2>
@@ -86,7 +103,7 @@ go to roboflow and do stuff
 
    A. Select your model ``` modell = YOLO('Model of Your Choice') ```, choice being presented at [YOLOv8](https://github.com/ultralytics/ultralytics). Detection or Segmentation, nano or extra large model is up to you to decide. When done with the choice, simply insert the name instead of the place holder text.
 
-   B. To train the custom model: ``` modell.train(data = "Insert Your Data.yaml in your training-data-set folder", epochs 200, imgsz = [w, h], batch = 5, project = "Directory to Output the Model") ```. YOLOv8 provides more [arguments](https://docs.ultralytics.com/modes/train/#arguments) that you can tinker around with, so it's best to familiarize yourself with them to make sure you are training the best model.
+   B. To train the custom model: ``` modell.train(data = "Insert Your Data.yaml in your training-data-set folder", epochs = 100, imgsz = [original photo/video w, h], batch = 3, project = "Directory to Output the Model") ```. YOLOv8 provides more [arguments](https://docs.ultralytics.com/modes/train/#arguments) that you can tinker around with, so it's best to familiarize yourself with them to make sure you are training the best model.
 
    > ⚠️ Be ware of the imgsz & batch options. If you are using a free google colab version, then the V100 GPU type might quickly run out of VRAM, promptly stopping your training. A rule of thumb is that the larger the image size the smaller the batch size should be. Though smaller batch sizes will significantly increase the time it takes to train the model.
    
