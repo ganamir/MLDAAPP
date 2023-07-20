@@ -63,11 +63,11 @@ go to roboflow and do stuff
   
  </details>
  
-  <h2> Model-Script Usage </h2>
+  <h2> Training & Running YOLOv8 </h2>
  <details>
 
 1. Copy the jupyter notebook that is associated with MLDAAPP into your own google colab drive.
-   > ⚠️ Make sure to connect the GPU to reduce the time needed to train the custom model. At the top left corner click ``` Runtime > Change Runtime Time > Hardware accelerator ✔️GPU > GPU type: V100 ``` If you are using a paid google colab version, highly recommend using A100 GPU which significantly reduces the time needed to train the models. 
+   > ⚠️ Make sure to connect the GPU to reduce the time needed to train the custom model. At the top left corner click ``` Runtime > Change Runtime Time > Hardware accelerator ✔️GPU > GPU type: V100 > Save > Connect ``` If you are using a paid google colab version, highly recommend using A100 GPU which significantly reduces the time needed to train the models. 
 3. Run the first: "Install & Import all of dependancies and functions" code block without modyifing anything.
    > ⚠️ A google drive notification will pop-up, simply accept it and log-in to your google account for a massive quality of life improvement when dealing with large or small data-files.
 4. If used roboflow for annotating your training-data-set, import your training set into the training set block and run the commands.
@@ -89,17 +89,43 @@ go to roboflow and do stuff
    B. To train the custom model: ``` modell.train(data = "Insert Your Data.yaml in your training-data-set folder", epochs 200, imgsz = [w, h], batch = 5, project = "Directory to Output the Model") ```. YOLOv8 provides more [arguments](https://docs.ultralytics.com/modes/train/#arguments) that you can tinker around with, so it's best to familiarize yourself with them to make sure you are training the best model.
 
    > ⚠️ Be ware of the imgsz & batch options. If you are using a free google colab version, then the V100 GPU type might quickly run out of VRAM, promptly stopping your training. A rule of thumb is that the larger the image size the smaller the batch size should be. Though smaller batch sizes will significantly increase the time it takes to train the model.
-6. Once you have trained the model select your "best.pt" model from the outputted folder post-training. ``` model = YOLO("Your best.pt file directory") ```. It's often located as such: ``` ./model_output_folder/train#/weights/best.pt ```
+   
+   > 🛑 When deciding the "project" directory, I highly recommend creating a folder in your google drive directory, as google colab can very likely kick you off while you are training your model, and this way you can always return back and re-/finish training your model.  
+7. Once you have trained the model select your "best.pt" model from the outputted folder post-training. ``` model = YOLO("Your best.pt file directory") ```. It's often located as such: ``` ./model_output_folder/train#/weights/best.pt ```
 
-7. Once you are satisfied with your model now acquire your "Test" video to test how the model performs.
+8. Once you are satisfied with your model now acquire your "Test" video to test how the model performs.
    > ⚠️ Best if the Test video was not part of the training-set as it will give you a better idea of the performance. 
+
+9. If you need to modify your video to change video length/FPS/speed use the following command: ``` video_editing("video directory", t0, t1, fps, spd) ```. Additionally, add ``` frame = global_video ``` as it will assist you in the next step.
  
+10. Now use your custom trained model to analyze the video of interest. If you had used step 8 to modify your video, simply run the "Model Usage" code block.
+    - If you had not used step 8, simply upload your test video, right click to copy the directory, and add it to  ``` frame = "Test Video Directory" ```
+    > ⚠️ [YOLOv8 arguments](https://docs.ultralytics.com/modes/predict/#inference-arguments) to tinker around to maximize your model efficacy and accuracy on the Test data.
  </details>
 </details>
 
-# MLDAAPP .csv Outputs
+# MLDAAPP Scripts & .csv Outputs
 <details>
  <summary> Click to Expand </summary>
+
+1. In order to get essential metrics/coordinates for some of the calculations, MLDAAPP provides 3 ways to draw on the images:
+   - ``` draw_dots(img, x1, y1) ``` allows to pin-point the nessesary coordinate for point q-object-distance calculations.
+     > To set your custom q-coordinate simply add ``` q = [x1, y1] ``` with your own coordinates.
+   - ``` draw_lines(img, x1, y1, x2, y2) ``` helps in calculating pixels_per_centimeter measurments if needed.
+     > To get a somewhat accurate pixels/cms conversion it is helpful to have a ruler/object of a known size within the video frame. Then simply draw a line for the whole length of the object, and use the difference between point 1 & 2 as the pixel length and perform simple conversions to get your variable.  
+   - ``` draw_polygons(img, x1, y1, x2, y2, x3, y3, x4, y4) ``` helps in determining the coordinates needed for object_within_area_counting metrics.
+     > In order to calculate how many objects are within a certain space, it is important to set the correct coordinates for your space of interest. Once done drawing a polygon around your area, simply create variables as such ``` coords1/2/3/... = [[x1,y1],[x2,y2],[x3,y3],[x4,y4]] ``` 
+
+2. Lastly run Data Extraction Block without modifying anything. This will create the dataframes with your outputs.
+   > 🛑 If you are unhappy with the ID re-assignment, MLDAAPP provides the ability to manually modify the IDs. Simply return to the Data Extraction block, and move to the "Reassign IDs for _main_ dataframe" section. After running the block you should have seen the code output being a dataframe with numerical assignments for each of the IDs in each of the section. These numbers are simply the amount of times the object was tracked, so if you had a video with a lenght of 1800 frames, then you would ideally have all of your objects at an 1800 value for each of the sections. MLDAAPP provides 3 ways to filter the data:
+   
+   > A. rename IDs using ``` df5['ID'] = df5['ID'].replace([2],[1]) ```, here you turn ID 2 into ID 1. Make sure to turn higher ID values into lower ones, as doing it the other way may cause frame assignement problems.
+   
+   > B. Remove any columns under a certain presence threshold ``` df5 = df5.groupby('ID').filter(lambda x : len(x > ###)) ```. Substituing ### for any numerical threshold.
+   
+   > C. Removing any specific ID ``` df5 = df5[df5.ID != 1] ```, here you remove anything related to ID 1. 
+4. In order to save these data frames into human-viewable objects use the last block to save the files.
+   > ⚠️ Make sure to change the directory & names of the 3 saving files, maintaining .csv at the end of the file names. It should generally look like this ``` df#.to_csv('directory/filename.csv') ```
  
 </details>
 
