@@ -64,21 +64,41 @@ Copy me to drive:
 <details>
 <summary> Click to Expand </summary>
  <h2> Training Set Preparation </h2>
- <details>
+<details>
 
- 1. Head to [Roboflow](https://roboflow.com/), create an account and sign in.
- 2. Create a Workspace, then create a New Project.
-    > Depending on what YOLOv8 model you will be using, you will have to decide what project type you will need. (Object detection is the best/simplest way to begin using MLDAAPP)
- 3. Once you have created the project, import the videos/photos that you would like to turn into your training set & begin annotating the objects of interest.
- 4. Once done annotating, add all of your images to the Dataset using 70% Train - 30% Valid or 80% Train - 20% Valid methods.
+ 1. Head to [Roboflow](https://roboflow.com/), create an account and sign in and begin annotating your training-set.
+    > ⚠️Sometimes roboflow website is not performing as well as it could, so if any issues arise simply restart the page. 
+
+<details> <summary> Important Steps to using Roboflow </summary> 
+    
+A. Create a new workspace ``` + Workspace > Academia > "Arbitrary Workspace name"```
+
+B. Create New Project ``` Project Type: Instance Segmentation > "Arbitrary name for you detection object" > "Arbitrary name for your project name" ```
+
+C. Select your training set videos/photos then drag and drop in the given menu.
+
+   > 🛑 Depending on the difficult of your scenic composition, you will have to add more data to your training-set. To begin with, aim for ~150-200 pictures with a varying background composition. Try to have a wide range of scenarios present in your data, as it will train the most accurate model.
+
+D. Once uploaded your images click "Save and Continue"
+   > 🛑 In the event that uploading does not finish and it is stuck at the infinite upload screen (more than a couple of mins depends on the file size), simply restart the page and try again.
+
+E. Click Assign Images then Start Annotating.
+
+   > 🛑 Roboflow provides multiple tools to assist with annotating images specifically designed to work with "Instance Segmentation" Data, these tools are "Smart Polygon" and "Polygon tool." The former significantly cuts down on the time needed to annotate the object, so I suggest that you familiarize yourself with it. The latter allows for a more manual control over what needs to be annotated. Either way both tools do a great job at creating the data-set.
+
+F. When satisfied with the amount of annotations click on the arrow at the top left corner & click "Add # images to Dataset" located at the top right corner. Finally proceed to step#3.
+</details>
+
+
+ 3. Once done annotating, add all of your images to the Dataset using 70% Train - 30% Valid or 80% Train - 20% Valid methods.
     > Test set is not important, as I highly suggested creating a seperate video/picture data set with similar or different environmental settings to see how well the model performs.
- 5. Then enter the "Generate" section and create the data set.
+ 4. Then enter the "Generate" section and create the data set.
     > In preproccessing, remove (Resize) function, as we have found it to interfere with our results, especially when training to detect small objects.
 
     > Augementation is highly dependant on the data set, where some might find a huge improvement while other will not.
 
- 6. Generate the set and click "Export Dataset > Format: YOLOv8 > Show Download Code ✔️ > Continue" And finally copy the Download code and keep it into the next section where you will be training and running the computer vision model. 
- </details>
+ 5. Generate the set and click "Export Dataset > Format: YOLOv8 > Show Download Code ✔️ > Continue" And finally copy the Download code and keep it into the next section where you will be training and running the computer vision model.
+</details>
  
   <h2> Training & Running YOLOv8 </h2>
  <details>
