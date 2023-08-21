@@ -39,7 +39,7 @@
 # Key Features 
 
 - Object Tracking (YOLOv8 x Tracker)
-  - Maintaining object IDs
+  - Maintaining consistent object IDs
 - Object Counts
   - Within every picture (or every frame if video)
   - Within user defined space
@@ -49,22 +49,26 @@
   - Point q is a user defined position
 - Object Centroid Distance away from initial position (t=0 position)
 - Total Object Centroid Displacement
-- Object Surface Area (only with segmentation model)
+- Object Surface Area (only with instance segmentation model)
 
-# How to use
+# ---- How to use ----
 <details>
-<summary> Click to Expand </summary>
- <h2> Training Set Preparation </h2>
-<details>
+<summary> ⬇️Click to Expand </summary> 
+ <h2> -- Training Set Preparation -- </h2>
+<details><summary> - 🔽 - </summary>
+
 
  1. Head to [Roboflow](https://roboflow.com/), create an account and sign in and begin annotating your training-set.
     > ⚠️Sometimes roboflow website is not performing as well as it could, so if any issues arise simply restart the page. 
 
-<details> <summary> Important Steps to using Roboflow </summary> 
-    
+
+ <details> <summary> ➡️Important Steps to using Roboflow⬅️ </summary>
+
+ ___
+
 A. Create a new workspace ``` + Workspace > Academia > "Arbitrary Workspace name"```
 
-B. Create New Project ``` Project Type: Instance Segmentation > "Arbitrary name for you detection object" > "Arbitrary name for your project name" ```
+B. Create New Project ``` Project Type: Object Detection (Bounding Box) > "Arbitrary name for you detection object" > "Arbitrary name for your project name" ```
 
 C. Select your training set videos/photos then drag and drop in the given menu.
 
@@ -75,9 +79,10 @@ D. Once uploaded your images click "Save and Continue"
 
 E. Click Assign Images then Start Annotating.
 
-   > 🛑 Roboflow provides multiple tools to assist with annotating images specifically designed to work with "Instance Segmentation" Data, these tools are "Smart Polygon" and "Polygon tool." The former significantly cuts down on the time needed to annotate the object, so I suggest that you familiarize yourself with it. The latter allows for a more manual control over what needs to be annotated. Either way both tools do a great job at creating the data-set.
+   > 🛑 Roboflow provides multiple tools to assist with annotating images specifically designed to work with "Instance Segmentation" Data, these tools are "Smart Polygon" and "Polygon tool." The former significantly cuts down on the time needed to annotate the object, so I suggest that you familiarize yourself with it. The latter allows for a more manual control over what needs to be annotated. Either way both tools do a great job at creating the data-set. But for a simple Object Detection data set, simply use a bounding box tool.
 
 F. When satisfied with the amount of annotations click on the arrow at the top left corner & click "Add # images to Dataset" located at the top right corner. Finally proceed to step#3.
+___
 </details>
 
 
@@ -86,13 +91,13 @@ F. When satisfied with the amount of annotations click on the arrow at the top l
  4. Then enter the "Generate" section and create the data set.
     > In preproccessing, remove (Resize) function, as we have found it to interfere with our results, especially when training to detect small objects.
 
-    > Augementation is highly dependant on the data set, where some might find a huge improvement while other will not.
+    > Augementation is highly dependant on the data set, where some might find a huge improvement others will not.
 
  5. Generate the set and click "Export Dataset > Format: YOLOv8 > Show Download Code ✔️ > Continue" And finally copy the Download code and keep it into the next section where you will be training and running the computer vision model.
 </details>
  
   <h2> Training & Running YOLOv8 </h2>
- <details>
+ <details> <summary> - 🔽 - </summary>
 
  1. Copy the jupyter notebook that is associated with MLDAAPP into your own google colab drive. 
  
@@ -115,9 +120,11 @@ F. When satisfied with the amount of annotations click on the arrow at the top l
    ```
 
 4. Now you will install a folder containing your annotated images with an important "data.yaml" file. Open the folder icon that is located on the left side of the interface, and there you will locate the newly downloaded folder with your traning-set named "NameName-#" Open the folder and double left click the data.yaml file and make sure that it looks similar to what is shown below. If it does, simply right click on the "data.yaml" file and copy its directory through "Copy Path" option.
+
+> ⚠️Make sure that the "data.yaml" looks somewhat similar to what is shown below, especially pay attention to the leading directory of test, train and val lines. It is important that "../" is present prior to test & train & valid directories as otherwise the training algorithm won't be able to find your training data. 
 ```
 names:
-- Name
+- YourObjectName
 nc: #
 roboflow:
   license: CC BY 4.0
@@ -125,9 +132,9 @@ roboflow:
   url: https://universe.roboflow.com/name/name/dataset/#
   version: #
   workspace: name
-test: test/images
-train: train/images
-val: valid/images
+test: ../test/images
+train: ../train/images
+val: ../valid/images
 ```
  
 5. To train your Custom Model:
@@ -152,7 +159,7 @@ val: valid/images
 7. Once you are satisfied with your model now acquire your "Test" video to test how the model performs.
    > ⚠️ Best if the Test video was not part of the training-set as it will give you a better idea of the performance. 
 
-8. If you need to modify your video to change video length/FPS/speed use the following command: ``` video_editing("video directory", t0, t1, fps, spd) ```. Additionally, add ``` frame = global_video ``` as it will assist you in the next step.
+8. If you need to modify your video to change video length/FPS/speed/resolution use the following command: ``` video_editing("video directory", t0, t1, fps, spd, w) ```. Additionally, add ``` frame = global_video ``` as it will assist you in the next step.
  
 9. Now use your custom trained model to analyze the video of interest. If you had used step 8 to modify your video, simply run the "Model Usage" code block.
     - If you had not used step 8, simply upload your test video, right click to copy the directory, and add it to  ``` frame = "Test Video Directory" ```
@@ -162,7 +169,7 @@ val: valid/images
 
 # MLDAAPP Scripts & .csv Outputs
 <details>
- <summary> Click to Expand </summary>
+ <summary> ⬇️Click to Expand </summary>
 
 1. In order to get essential metrics/coordinates for some of the calculations, MLDAAPP provides 3 ways to draw on the images:
    > 🛑 Although may not be essential for some people, still run this code block as the lack of variables may prevent the data-extraction block from running. 
@@ -174,14 +181,13 @@ val: valid/images
      > In order to calculate how many objects are within a certain space, it is important to set the correct coordinates for your space of interest. Once done drawing a polygon around your area, simply create variables as such ``` coords1/2/3/... = [[x1,y1],[x2,y2],[x3,y3],[x4,y4]] ``` 
 
 2. Lastly run Data Extraction Block without modifying anything. This will create the dataframes with your outputs.
-   > 🛑 If you are unhappy with the ID re-assignment, MLDAAPP provides the ability to manually modify the IDs. Simply return to the Data Extraction block, and move to the "Reassign IDs for _main_ dataframe" section. After running the block you should have seen the code output being a dataframe with numerical assignments for each of the IDs in each of the section. These numbers are simply the amount of times the object was tracked, so if you had a video with a lenght of 1800 frames, then you would ideally have all of your objects at an 1800 value for each of the sections. MLDAAPP provides 3 ways to filter the data:
+   > 🛑 If you are unhappy with the ID re-assignment, MLDAAPP provides the ability to manually modify the IDs. Simply return to the Data Extraction block, and locate the "Reassign IDs" section. After running the block you should have seen the code output being a dataframe with numerical assignments for each of the IDs in each of the section. These numbers are simply the amount of times the object was tracked, so if you had a video with a lenght of 1800 frames, then you would ideally have all of your objects at an 1800 value for each of the sections. MLDAAPP provides 3 ways to filter the data:
    
-   > A. rename IDs using ``` df5['ID'] = df5['ID'].replace([2],[1]) ```, here you turn ID 2 into ID 1. Make sure to turn higher ID values into lower ones, as doing it the other way may cause frame assignement problems.
+   > A. rename IDs using ``` df5['ID'] = df5['ID'].replace([2],[1]) ```, here you turn ID 2 into ID 1. Make sure to turn higher ID values into lower ones, as doing it the other way may  cause frame assignment problems.
    
-   > B. Remove any columns under a certain presence threshold ``` df5 = df5.groupby('ID').filter(lambda x : len(x > ###)) ```. Substituing ### for any numerical threshold.
-   
-   > C. Removing any specific ID ``` df5 = df5[df5.ID != 1] ```, here you remove anything related to ID 1. 
-3. In order to save these data frames into human-viewable objects use the last block to save the files.
+   > B. Down at the bottom of the code cell you may locate an ID Removal section which will assist in removing any columns under a certain presence threshold ``` df5 = df5.groupby('ID').filter(lambda x : len(x > ###)) ```. Substituing ### for any numerical threshold. Or removing any specific ID ``` df5 = df5[df5.ID != 1] ```, here you remove anything related to ID 1.
+
+3. In order to save these data frames into human-viewable objects, use the last block to save the files.
    > ⚠️ Make sure to change the directory & names of the 3 saving files, maintaining .csv at the end of the file names. It should generally look like this ``` df#.to_csv('directory/filename.csv') ```
  
 </details>
