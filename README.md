@@ -63,7 +63,7 @@
 
 
  <details> <summary> ➡️Important Steps to using Roboflow⬅️ </summary>
-
+<div align = "center"> ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ </div>
  ___
 
 A. Create a new workspace ``` + Workspace > Academia > "Arbitrary Workspace name"```
