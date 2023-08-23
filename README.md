@@ -156,16 +156,29 @@ val: ../valid/images
 
 6. Once you have trained the model select your "best.pt" model from the outputted folder post-training. ``` model = YOLO("Your best.pt file directory") ```. It's often located as such: ``` ./model_output_folder/train#/weights/best.pt ```
 
-7. Once you are satisfied with your model now acquire your "Test" video to test how the model performs.
+### Analyzing Videos:
+- Once you are satisfied with your model now acquire your "Test" video to test how the model performs.
    > ⚠️ Best if the Test video was not part of the training-set as it will give you a better idea of the performance. 
 
-8. If you need to modify your video to change video length/FPS/speed/resolution use the following command: ``` video_editing("video directory", t0, t1, fps, spd, w) ```. Additionally, add ``` frame = global_video ``` as it will assist you in the next step.
+- If you need to modify your video to change video length/FPS/speed/resolution use the following command: ``` video_editing("video directory", t0, t1, fps, spd, w) ```. Additionally, add ``` frame = global_video ``` as it will assist you in the next step.
  
-9. Now use your custom trained model to analyze the video of interest. If you had used step 8 to modify your video, simply run the "Model Usage" code block.
+- Now use your custom trained model to analyze the video of interest. If you had used step 8 to modify your video, simply run the "Model Usage" code block.
     - If you had not used step 8, simply upload your test video, right click to copy the directory, and add it to  ``` frame = "Test Video Directory" ```
     > ⚠️ [YOLOv8 arguments](https://docs.ultralytics.com/modes/predict/#inference-arguments) to tinker around to maximize your model efficacy and accuracy on the Test data.
+    
+### Analyzing Photos: (Only for single object counts)
+- Similar to Video analysis, you simply have to acquire your photo set after training the model. Once uploaded, head to the bottom of the google colab page and look for "PHOTO MODEL USAGE."
+
+- Once found, insert the directory of your photo folder instead of the placeholder text and run the analysis.
+
+- The model should have saved all the annotated photo results to a folder in a similar fashion as the video analysis. Head to that folder and look whether you are satisfied with the AI annotations and count.
+
+- If model performance is satisfactory, you can use the code cell under the model usage to save the counted data to a .csv file.  
+
  </details>
 </details>
+
+
 
 # MLDAAPP Scripts & .csv Outputs
 <details>
