@@ -152,7 +152,7 @@ val: ../valid/images
 
    > 🛑 When deciding the "project" directory, I highly recommend creating a folder in your google drive directory, as google colab will very likely kick you off while you are training your model, and this way you can always return back and re-/finish training your model.
    
-   > 🛑 Change the [w,h] options according to the original video/photo resolution used to train the models.
+   > 🛑 Change the [w,h] options according to the original video/photo resolution used to train the models. Higher is not always better, so try to downsample the resolution of your data until the object becomes difficult to spot. Otherwise try to maintain the same resolution between your models and the data that you feed it, so if the model is trained on w=1920, try to feed it data that is of the same resolution. 
 
 6. Once you have trained the model select your "best.pt" model from the outputted folder post-training. ``` model = YOLO("Your best.pt file directory") ```. It's often located as such: ``` ./model_output_folder/train#/weights/best.pt ```
 
