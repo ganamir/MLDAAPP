@@ -108,7 +108,7 @@ ___
 
    > ⚠️ Make sure to connect the GPU to reduce the time needed to train the custom model. At the top left corner click ``` Runtime > Change Runtime Time > Hardware accelerator ✔️GPU > GPU type: T4 > Save > Connect ``` If you are using a paid google colab version, highly recommend using A100 GPU which significantly reduces the time needed to train the models. 
 2. Run the first: "Install & Import all of dependancies and functions" code block without modyifing anything.
-   > ⚠️ A google drive notification will pop-up, simply accept it and log-in to your google account for a massive quality of life improvement when dealing with large or small data-files.
+   > ⚠️ A google drive notification will pop-up, simply accept it and log-in to your google account for a massive quality of life improvement when dealing with large or small data-files. So when using ``` project = ... ``` line, always try to save/export to your google drive folder, as being disconnected while using google colab is a common occurence.  
 3. If used roboflow for annotating your training-data-set, import the code that you had copied instead of this placeholder code block and run the block.
    ```
    !pip install roboflow
