@@ -156,7 +156,7 @@ val: ../valid/images
     - If you had not used step 8, simply upload your test video, right click to copy the directory, and add it to  ``` frame = "Test Video Directory" ```
     > ⚠️ [YOLOv8 arguments](https://docs.ultralytics.com/modes/predict/#inference-arguments) to tinker around to maximize your model efficacy and accuracy on the Test data.
     
-### Analyzing Photos: (Only for single object counts)
+### Analyzing Photos: (Only for single class counts)
 - Similar to Video analysis, you simply have to acquire your photo set after training the model. Once uploaded, head to the bottom of the google colab page and look for "PHOTO MODEL USAGE."
 
 - Once found, insert the directory of your photo folder instead of the placeholder text and run the analysis.
