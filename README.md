@@ -38,18 +38,8 @@
 
 # Key Features 
 
-- Object Tracking (YOLOv8 x Tracker)
-  - Maintaining consistent object IDs
-- Object Counts
-  - Within every picture (or every frame if video)
-  - Within user defined space
-- Centoid Position of every object
-  - Within every picture (or every frame if video)
-- Object Centroid Position away from point q
-  - Point q is a user defined position
-- Object Centroid Distance away from initial position (t=0 position)
-- Total Object Centroid Displacement
-- Object Surface Area (only with instance segmentation model)
+![MLDAAPP](https://github.com/ganamir/MLDAAPP/assets/129692189/132e196e-6e85-41b2-a38a-078e4d415b0b)
+
 
 # ---- How to use ----
 <details>
