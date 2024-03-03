@@ -12,7 +12,10 @@
 
 <div align = "center"> 
 <h4>
-  Machine Learning Data Acquisition for Assesing Population Phenotypes based on <a href = "https://github.com/ultralytics/ultralytics">YOLOv8</a>. 
+  Machine Learning Data Acquisition for Assesing Population Phenotypes based on <a href = "https://github.com/ultralytics/ultralytics">YOLOv8
+
+   MLDAAPP is a utility based off of YOLOv8, which helps in converting/creating/extracting essential information from the analyzed data to be used in phenotyping.
+  </a>
 </h4>
 </b>
 </div>
