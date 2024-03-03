@@ -20,9 +20,7 @@
 <img alt="GitHub followers" src="https://img.shields.io/github/followers/ganamir"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ganamir/MLDAPP"> <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/t/ganamir/MLDAPP"> <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/ganamir/MLDAPP/main">
 </div>
 <div align = "center">
-<h4>
- | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#key-features"> Key Features </a> | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#how-to-use"> How to Use </a> | <a href = "https://github.com/ganamir/MLDAAPP/edit/main/README.md#mldaapp-csv-outputs"> Outputs </a> |
-</h4>
+
 </div>
 <div align = "center"> <p> 
 <img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/20066b97-dc1e-4882-a588-8aff485404dc" hspace = "5" height = "100">
@@ -39,10 +37,77 @@
 
 # Key Features 
 
-![MLDAAPP](https://github.com/ganamir/MLDAAPP/assets/129692189/132e196e-6e85-41b2-a38a-078e4d415b0b)
+<p align="center">
+  <img src="https://github.com/ganamir/MLDAAPP/assets/129692189/132e196e-6e85-41b2-a38a-078e4d415b0b" alt="MLDAAPP" width="65%" height="65%">
+</p>
+
+# Running YOLOV8 and MLDAAPP
+- Head to https://roboflow.com/ and annotate your training set, make sure to export your data set as YOLOV8 format with "show download code". Direct to FAQ for more information about annotating and setting up your training data.
+
+<a href="https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing">
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+ </a>
+ 
+ - Open the above [Google Colab](https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing) link then ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/3fb04c3d-4198-440f-a8ce-69124d4ef5cf) and make sure that you have a GPU connected (Runtime > Change runtime type > Hardware accelerator: ### GPU > ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/bf78551c-d5ea-4cdc-b9d2-0bd4880e073d)
+)
+
+## Install & Import all of dependancies and functions:
+Once connected, simply execute this cell by clicking the start button. ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/cab7e894-02a7-4f1d-86d7-a4b94544322c)
+
+## Model selection and training: 
+### Upload your Roboflow code and install your annotated data
+Copy paste your install code from roboflow into "Upload your Roboflow code and install your annotated data" cell and execute the block.
+After installation of your training data, head to ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/6b656640-afd4-48da-a131-d23ac3f2341e) , and locate data.yaml file. Open it, and make sure that it looks similar to the below code block. Pay high attention to test,train and val sections, as sometimes ```../``` is missing, not allowing YOLOv8 models to properly find the training directories. 
+```
+names:
+- YourObjectName
+nc: #
+roboflow:
+  license: CC BY 4.0
+  project: Name
+  url: https://universe.roboflow.com/name/name/dataset/#
+  version: #
+  workspace: name
+test: ../test/images
+train: ../train/images
+val: ../valid/images
+```
+
+### Train your model
+
+If satisfied, move on to "Train your model" code block, and insert your model of choice (ranging from ```yolov8n.pt``` to ```yolov8x.pt```), more information at [Models Section](https://docs.ultralytics.com/tasks/detect/).
+Then insert your data.yaml file directory into the specified space, and make sure to change ```imgsz = [w,h] ``` to your desired dimensions (typically used 640x640), and add ```project = ""``` directory to save your model in a desired space (Highly recommend saving your model in a google drive folder, as to make sure that no outages and disconnections result in the losing of your trained algorithm).
+
+## Automatic Video Analysis:
+This is where you will be able to analyze your videos and extract various metrics from the videos. Highly recommend renaming your video files according to a unique name and/or potentially segregate each file into a seperate folder for cleanliness. The script should analyze all videos in bulk, and produce .csv files with appropriate metrics for each of the videos. 
+
+### Calculate pixel per centimeter metric for MLDAAPP conversions:
+Specify your ```directory_path = "" ``` with your folder of video files, and execute the cell block. Once a photo generates under the cell block, use ```draw_lines()``` command to draw a line across the generated frame along side an object of known size and calculate how many pixels are within a centimeter. 
+
+### Run Video Analysis:
+
+- First, define the model ```model = '' ```, insert the directory of your best.pt file that was generated after training your custom model.
+- Second, insert your value into ```pixels_per_centimeter =``` variable. This is neccessary to calculate the appropriate conversions.
+- Third, define your ```directory_path = "" ``` with your video file directory. This is incase if you didn't run the above cell block.
+- Finally, depending on what format you video files are ".MP4, .MOV, etc." modify the code line ```if filename.endswith('.MOV'):``` with your own format.
+
+You should now be able to execute the cell block, and the analysis will begin. 
+
+## Photo Analysis:
+- Define your ```model = YOLO()``` with the best.pt file directory from your custom trained model.
+- Insert your directory of your photos instead of "Your Photo Data Folder".
+- Modify FileName.csv and ColumnName to your desired names and variables in ```save_to_csv("FileName.csv", "ColumnName", n)```. 
 
 
-# ---- How to use ----
+# FAQ
+
+ WIP
+
+# Deep Dive:
+<details>
+<summary> ⬇️Click to Expand </summary> 
+
+ # ---- How to use ----
 <details>
 <summary> ⬇️Click to Expand </summary> 
  <h2> -- Training Set Preparation -- </h2>
@@ -195,6 +260,7 @@ val: ../valid/images
    > ⚠️ Make sure to change the directory & names of the 3 saving files, maintaining .csv at the end of the file names. It should generally look like this ``` df#.to_csv('directory/filename.csv') ```
  
 </details>
+
 
 
 
