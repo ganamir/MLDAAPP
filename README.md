@@ -38,6 +38,12 @@
  <a href = "https://drive.google.com/drive/folders/1Cik_RP02iHdTcI5X0fH4UrqCQYtgXdQ7?usp=sharing"> And the Rest <a/> |
  </p></div>
 
+<div align = "center"> <p> Pre-trained data-sets
+ | <a href = "https://drive.google.com/drive/folders/1t6K05ucDLfYnNPZ0ddboAz4vdq3WrCOa?usp=sharing"> Fecundity Brown </a> |
+ <a href = "https://drive.google.com/drive/folders/1AO-t3DIOKdH7gkiKqyn4ymQ1XZr-srwZ?usp=sharing"> Fecundity Charcoal </a> |
+ <a href = "https://drive.google.com/drive/folders/1aQ10fsA_LZhURsEHc7x2JYWzwjXsw5a9?usp=sharing"> Drosophila Movement </a> | 
+ </p></div>
+
 # Key Features 
 
 <p align="center">
@@ -45,22 +51,19 @@
 </p>
 
 # Running YOLOV8 and MLDAAPP
-- Head to https://roboflow.com/ and annotate your training set, make sure to export your data set as YOLOV8 format with "show download code". Direct to FAQ for more information about annotating and setting up your training data.
+- Head to [Roboflow](https://roboflow.com/) or [AnyLabeling](https://github.com/vietanhdev/anylabeling) and annotate your training set, direct down the page to appropriate sections for step-by-step run down to labeling,training, and running YOLOv8 and extracting data with MLDAAPP.
 
-<a href="https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing">
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
- </a>
- 
- - Open the above [Google Colab](https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing) link then ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/3fb04c3d-4198-440f-a8ce-69124d4ef5cf) and make sure that you have a GPU connected (Runtime > Change runtime type > Hardware accelerator: ### GPU > ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/bf78551c-d5ea-4cdc-b9d2-0bd4880e073d)
+- Open the following [Google Colab](https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing) link then ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/3fb04c3d-4198-440f-a8ce-69124d4ef5cf) and make sure that you have a GPU connected (Runtime > Change runtime type > Hardware accelerator: ### GPU > ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/bf78551c-d5ea-4cdc-b9d2-0bd4880e073d)
 )
 
-## Install & Import all of dependancies and functions:
-Once connected, simply execute this cell by clicking the start button. ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/cab7e894-02a7-4f1d-86d7-a4b94544322c)
+- Once connected, simply execute this cell by clicking the start button. ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/cab7e894-02a7-4f1d-86d7-a4b94544322c)
 
-## Model selection and training: 
-### Upload your Roboflow code and install your annotated data
-Copy paste your install code from roboflow into "Upload your Roboflow code and install your annotated data" cell and execute the block.
-After installation of your training data, head to ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/6b656640-afd4-48da-a131-d23ac3f2341e) , and locate data.yaml file. Open it, and make sure that it looks similar to the below code block. Pay high attention to test,train and val sections, as sometimes ```../``` is missing, not allowing YOLOv8 models to properly find the training directories. 
+## Data-set Annotation and Training: 
+### Roboflow annotation (preferred method):
+Create an account, create a project and upload your respective training data, annotate using bounding box tool (for object counting/tracking), or polygon tool (for object tracking/surface area).
+Once finished annotating, export your data with appropriate augementations and desired photo resolution, then copy paste your generated install code from roboflow into MODEL SELECTION AND TRAINING column, under "Upload your Roboflow code and install your annotated data" cell and execute the block.
+
+After installation of your training data, head to ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/6b656640-afd4-48da-a131-d23ac3f2341e) graphic in the top left corner of the website, and locate data.yaml file in your downloaded annotated data-set directory. Open it, and make sure that it looks similar to the below code block. Pay high attention to test,train and val sections, as sometimes ```../``` is missing, not allowing YOLOv8 models to properly find the training directories. 
 ```
 names:
 - YourObjectName
@@ -77,9 +80,14 @@ val: ../valid/images
 ```
 
 ### Train your model
+Once satisfied, move on to "Train your model" code block, and insert your model of choice (```yolov8x.pt``` or ```yolov8x-seg.pt```), more information at [Models Section](https://docs.ultralytics.com/models/yolov8/#supported-tasks-and-modes) or the FAQ.
+Then insert your data.yaml file directory into the specified space, and make sure to change ```imgsz = [w,h] ``` to your desired dimensions (typically used 640x640, or higher resolutions such as 1920x1080 for better detail for small object detection), and add ```project = ""``` directory to save your model in a desired space (Highly recommend saving your model in a google drive folder, as to make sure that no outages and disconnections result in the losing of your trained algorithm).
 
-If satisfied, move on to "Train your model" code block, and insert your model of choice (ranging from ```yolov8n.pt``` to ```yolov8x.pt```), more information at [Models Section](https://docs.ultralytics.com/tasks/detect/).
-Then insert your data.yaml file directory into the specified space, and make sure to change ```imgsz = [w,h] ``` to your desired dimensions (typically used 640x640), and add ```project = ""``` directory to save your model in a desired space (Highly recommend saving your model in a google drive folder, as to make sure that no outages and disconnections result in the losing of your trained algorithm).
+## Photo Analysis (Such as Fecundity Counts):
+- Define your ```model = YOLO()``` with the best.pt file directory from your custom trained model.
+- Insert your directory of your photos instead of "Your Photo Data Folder".
+- Modify FileName.csv and ColumnName to your desired names and variables in ```save_to_csv("FileName.csv", "ColumnName", n)```.
+- *IMPORANT*: Make sure to iterate on the ```conf = ###```, by increasing or decreasing the number. Lowering confidence allows for more detections, increasing it lowers them. Having a range of photos pre-counted as best as possible to fit the model by iterating conf best fits the data that you have. Maintaining similar photographic conditions between data-sets allows for the same confidence value to be best fit without iteration. 
 
 ## Automatic Video Analysis:
 This is where you will be able to analyze your videos and extract various metrics from the videos. Highly recommend renaming your video files according to a unique name and/or potentially segregate each file into a seperate folder for cleanliness. The script should analyze all videos in bulk, and produce .csv files with appropriate metrics for each of the videos. 
@@ -96,15 +104,17 @@ Specify your ```directory_path = "" ``` with your folder of video files, and exe
 
 You should now be able to execute the cell block, and the analysis will begin. 
 
-## Photo Analysis:
-- Define your ```model = YOLO()``` with the best.pt file directory from your custom trained model.
-- Insert your directory of your photos instead of "Your Photo Data Folder".
-- Modify FileName.csv and ColumnName to your desired names and variables in ```save_to_csv("FileName.csv", "ColumnName", n)```. 
 
 
 # FAQ
+**Where can I get the pre-trained models?**
+- At the top of the GitHub "Pre-trained data-sets" leads to the appropriate models.
 
- WIP
+**My counts are innacurate although it's well trained, why?**
+ - Make sure to iterate the ``` conf = ### ``` function to best fit your model to your data.
+
+**Tracking in videos is innacurate and some individuals get reassigned, what can I do about it?**
+ - We provide an additional subsection in MLDAAPP, "Manual Video Analysis," where you can individually analyze a video through your trained algorithm, manually re-assign IDs in a video, and extract that data as needed. Unfortunately, no tracker is perfect.
 
 # Deep Dive:
 <details>
