@@ -38,10 +38,17 @@
  <a href = "https://drive.google.com/drive/folders/1Cik_RP02iHdTcI5X0fH4UrqCQYtgXdQ7?usp=sharing"> And the Rest <a/> |
  </p></div>
 
+</div>
+<div align = "center"> <p> 
+<img src = "https://github.com/user-attachments/assets/ef31a024-393e-44b9-a1e6-31ca270638db" hspace = "5" height = "100">
+<img src = "https://github.com/user-attachments/assets/80174883-6d2e-4e0e-8cb2-18f89c8a2dc7" hspace = "5" height = "100" >
+<img src = "https://github.com/user-attachments/assets/cc56f401-a0b2-4f11-bc59-404cc73a6d30" hspace = "5" height = "100" >
+</p></div>
+
 <div align = "center"> <p> Pre-trained data-sets
- | <a href = "https://drive.google.com/drive/folders/1t6K05ucDLfYnNPZ0ddboAz4vdq3WrCOa?usp=sharing"> Fecundity Brown </a> |
- <a href = "https://drive.google.com/drive/folders/1AO-t3DIOKdH7gkiKqyn4ymQ1XZr-srwZ?usp=sharing"> Fecundity Charcoal </a> |
- <a href = "https://drive.google.com/drive/folders/1aQ10fsA_LZhURsEHc7x2JYWzwjXsw5a9?usp=sharing"> Drosophila Movement </a> | 
+ | <a href = "https://drive.google.com/drive/folders/1WbZzdiBK329fIynr9Bp50CJXg14U6kiW?usp=sharing"> Fecundity Brown </a> |
+ <a href = "https://drive.google.com/drive/folders/1gBcKWz25Pzf5bOMl8egwMLgMuFNa2KLq?usp=sharing"> Fecundity Charcoal </a> |
+ <a href = "https://drive.google.com/drive/folders/1uckmLDCpvGtKHWd2GALrCm8y0Hoz6lBe?usp=sharing"> Drosophila Movement </a> | 
  </p></div>
 
 # Key Features 
