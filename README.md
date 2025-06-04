@@ -2,13 +2,8 @@
  <img src="https://github.com/ganamir/MLDAPP/assets/129692189/c684e3b2-9df1-4177-9abd-2e22ec30810f" height = "300">
 </p>
 
-<div align = "center"> 
-<b>
-<h1>
-  MLDAAPP 
-</h1>
-</b>
-</div>
+<h1 align="center"><b>MLDAAPP</b></h1>
+<p align="center"><small>Phonetic: em-el-dap | /ɛm ɛl ˈdæp/</small></p>
 
 <div align = "center"> 
 <h4>
