@@ -53,7 +53,7 @@
 </p>
 
 # Running YOLOV8 and MLDAAPP
-- Head to [Roboflow](https://roboflow.com/) or [AnyLabeling](https://github.com/vietanhdev/anylabeling) and annotate your training set, direct down the page to appropriate sections for step-by-step run down to labeling,training, and running YOLOv8 and extracting data with MLDAAPP.
+- Head to [Roboflow](https://roboflow.com/) or [LabelStudio](https://github.com/HumanSignal/label-studio/) and annotate your training set, direct down the page to appropriate sections for step-by-step run down to labeling,training, and running YOLOv8 and extracting data with MLDAAPP.
 
 - Open the following [Google Colab](https://colab.research.google.com/drive/1T-VKwfD3VGBhYVhGBEXpWB1HPT_pqOxV?usp=sharing) link then ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/3fb04c3d-4198-440f-a8ce-69124d4ef5cf) and make sure that you have a GPU connected (Runtime > Change runtime type > Hardware accelerator: ### GPU > ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/bf78551c-d5ea-4cdc-b9d2-0bd4880e073d)
 )
