@@ -143,6 +143,70 @@ Specify your ```directory_path = "" ``` with your folder of video files, and exe
 
 You should now be able to execute the cell block, and the analysis will begin. 
 
+### Video Outputs Explained:
+
+
+<div align="center">
+
+<table>
+  <thead>
+    <tr>
+      <th>"Net" File Output</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Centroid_X_Total_diff</td>
+      <td>Total centroid (center of object) displacement across all frames across x-axis</td>
+    </tr>
+    <tr>
+      <td>Centroid_Y_Total_diff</td>
+      <td>Total centroid (center of object) displacement across all frames across y-axis</td>
+    </tr>
+    <tr>
+      <td>Total_Diff</td>
+      <td>Total Centroid Displacement across x & y across all frames</td>
+    </tr>
+    <tr>
+      <td>Total_diff_cm</td>
+      <td>Total Centroid Displacement across x & y across all frames in cm</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>"Main" File Output</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Object_Name</td><td>Object name as trained by the algorithm (only useful if contains more than 1 group)</td></tr>
+    <tr><td>ID</td><td>Unique ID of the tracked individual</td></tr>
+    <tr><td>X# & Y#</td><td>Object vector coordinates</td></tr>
+    <tr><td>Frame_Num</td><td>Frame ID / Number</td></tr>
+    <tr><td>Centroid_X(_Y)</td><td>Calculated centroid of the object</td></tr>
+    <tr><td>Origin_X(Y)</td><td>Starting coordinates of the unique ID</td></tr>
+    <tr><td>ID_Orig_Distance</td><td>Distance of the centroid of the ID away from its Starting Position (in pixels)</td></tr>
+    <tr><td>Centroid_X(Y)_diff</td><td>Centroid Axial Displacement from Previous Position (previous frame)</td></tr>
+    <tr><td>Total_Centroid_diff</td><td>Total Centroid Displacement from Previous Position (previous frame)</td></tr>
+    <tr><td>Total_Centroid_diff_cm</td><td>Total Centroid Displacement from Previous Position (in cm)</td></tr>
+    <tr><td>Total_Area (only available in object segmentation)</td><td>Total Area of the object (calculated using shoelace method)</td></tr>
+    <tr><td>Total_Area_cm² (only available in object segmentation)</td><td>Total Area of the object (cm²)</td></tr>
+    <tr><td>Polygon#</td><td>Boolean, TRUE / FALSE - Shows if centroid of the ID is within the specified space</td></tr>
+    <tr><td>ID_Q_Distance</td><td>Distance of the ID Centroid away from the specified point Q (in pixels)</td></tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
 
 
 # FAQ
