@@ -60,7 +60,10 @@
 
 - Once connected, simply execute this cell by clicking the start button. ![image](https://github.com/ganamir/MLDAAPP/assets/129692189/cab7e894-02a7-4f1d-86d7-a4b94544322c)
 
-## Data-set Annotation and Training: 
+## 1. Data-set Annotation and Training: 
+
+[![Watch the video](https://img.youtube.com/vi/YWrF824WTb8/hqdefault.jpg)](https://www.youtube.com/embed/YWrF824WTb8)
+
 ### Roboflow annotation (preferred method):
 Create an account, create a project and upload your respective training data, annotate using bounding box tool (for object counting/tracking), or polygon tool (for object tracking/surface area).
 Once finished annotating, export your data with appropriate augementations and desired photo resolution, then copy paste your generated install code from roboflow into MODEL SELECTION AND TRAINING column, under "Upload your Roboflow code and install your annotated data" cell and execute the block.
