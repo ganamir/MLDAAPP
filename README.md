@@ -21,9 +21,9 @@
 
 </div>
 <div align = "center"> <p> 
-<img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/20066b97-dc1e-4882-a588-8aff485404dc" hspace = "5" height = "100">
-<img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/0539cbaf-955e-475d-bd4b-30cc153a9956" hspace = "5" height = "100" >
-<img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/4fda3b16-6200-44b2-bba6-393d7475fb28" hspace = "5" height = "100" >
+<img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/20066b97-dc1e-4882-a588-8aff485404dc" hspace = "5" style="height:100px;">
+<img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/0539cbaf-955e-475d-bd4b-30cc153a9956" hspace = "5" style="height:100px;">
+<img src = "https://github.com/ganamir/MLDAAPP/assets/129692189/4fda3b16-6200-44b2-bba6-393d7475fb28" hspace = "5" style="height:100px;">
 </p></div>
 
 <div align = "center"> <p> Video Examples
@@ -33,12 +33,13 @@
  <a href = "https://drive.google.com/drive/folders/1Cik_RP02iHdTcI5X0fH4UrqCQYtgXdQ7?usp=sharing"> And the Rest <a/> |
  </p></div>
 
+<div align="center">
+  <p>
+    <img src="https://github.com/user-attachments/assets/ef31a024-393e-44b9-a1e6-31ca270638db" hspace="5" style="height:150px;">
+    <img src="https://github.com/user-attachments/assets/80174883-6d2e-4e0e-8cb2-18f89c8a2dc7" hspace="5" style="height:150px;">
+    <img src="https://github.com/user-attachments/assets/cc56f401-a0b2-4f11-bc59-404cc73a6d30" hspace="5" style="height:150px;">
+  </p>
 </div>
-<div align = "center"> <p> 
-<img src = "https://github.com/user-attachments/assets/ef31a024-393e-44b9-a1e6-31ca270638db" hspace = "5" height = "100">
-<img src = "https://github.com/user-attachments/assets/80174883-6d2e-4e0e-8cb2-18f89c8a2dc7" hspace = "5" height = "100" >
-<img src = "https://github.com/user-attachments/assets/cc56f401-a0b2-4f11-bc59-404cc73a6d30" hspace = "5" height = "100" >
-</p></div>
 
 <div align = "center"> <p> Pre-trained data-sets / Practice Data / Media Recipe
  | <a href = "https://drive.google.com/drive/folders/1WbZzdiBK329fIynr9Bp50CJXg14U6kiW?usp=sharing"> Fecundity Brown </a> |
